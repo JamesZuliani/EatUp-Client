@@ -6,16 +6,15 @@ export default function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const history = useHistory();
 
   function handleSignup(e) {
     e.preventDefault();
 
     axios
-      .post("api/auth/signup", { username, password })
+      .post("api/signup", { username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        history.push("/login");
+        window.location = "/login";
       })
       .catch((err) => setError(err.response.data.error));
   }
