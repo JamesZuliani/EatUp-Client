@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./RecipeLookup.scss";
 
 export default function RecipeLookup() {
   const [ingredients, setIngredients] = useState([]);
@@ -19,46 +20,53 @@ export default function RecipeLookup() {
         }
       );
       setRecipes(response.data);
-      console.log(response.data);
-      console.log("response data here");
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <>
-      <h1>Recipe Lookup</h1>
-      <form onSubmit={handleRecipeSearch}>
-        <label htmlFor="ingredients">
+    <div className="lookup">
+      <form onSubmit={handleRecipeSearch} className="lookup__form">
+        <label htmlFor="ingredients" className="lookup__label">
           Enter ingredients (comma-separated):
         </label>
-        <input type="text" id="ingredients" onChange={handleIngredientChange} />
-        <button type="submit">Search Recipes</button>
+        <input
+          type="text"
+          id="ingredients"
+          placeholder="Ex. Chicken, Parmesan, Tomato Sauce"
+          className="lookup__input"
+          onChange={handleIngredientChange}
+        />
+        <button type="submit" className="lookup__submit">
+          Search Recipes
+        </button>
       </form>
       <div>
         {recipes.length > 0 ? (
-          <div>
+          <div className="suggestion-container">
             {recipes.map((recipe, index) => {
               return (
-                <div key={index}>
-                  <h3>{recipe.title}</h3>
-                  <img src={recipe.image} />
-                  <p>
-                    Ingredients:{" "}
+                <div key={index} className="suggestion">
+                  <h3 className="suggestion__title">{recipe.title}</h3>
+                  <img className="suggestion__image" src={recipe.image} />
+                  <p className="suggestion__ingredients">
+                    <span className="bold">Ingredients:</span>{" "}
                     {recipe.ingredients
                       .map((ingredient) => ingredient.food)
-                      .join(", ")}
+                      .join(",  ")}
                   </p>
-                  <a href={recipe.url}>View Recipe</a>
+                  <a href={recipe.url} target="_blank" className="suggestion__link">
+                    View Recipe
+                  </a>
                 </div>
               );
             })}
           </div>
         ) : (
-          <p>please input a new ingredient name</p>
+          <p className="suggestion__instruction">Please input a new ingredient name above to display recipe suggestion cards!</p>
         )}
       </div>
-    </>
+    </div>
   );
 }

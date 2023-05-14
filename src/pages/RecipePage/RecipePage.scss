@@ -1,0 +1,27 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.recipe-page {
+    background-color: $sand;
+}
+
+.sub-nav {
+    display: flex;
+    justify-content: center;
+
+    &__item {
+        margin: 1rem;
+        padding: 0.5rem;
+        border: 2px solid $grape;
+        border-radius: 15px;
+        color: $grape;
+        background-color: $shell;
+
+        &:hover {
+            border: 2px solid $eggplant;
+            color: $eggplant;
+            cursor: pointer;
+        }
+    }
+}

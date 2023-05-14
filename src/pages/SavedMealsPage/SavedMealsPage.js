@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Header from "../../components/Header/Header";
 
 export default function SavedMeals({ setSavedMeals, savedMeals }) {
   const [searchInput, setSearchInput] = useState("");
@@ -74,6 +75,7 @@ export default function SavedMeals({ setSavedMeals, savedMeals }) {
 
   return (
     <div>
+      <Header />
       <h1> Saved Meal</h1>
       <div>
         <h2>Search for Ingredients</h2>
