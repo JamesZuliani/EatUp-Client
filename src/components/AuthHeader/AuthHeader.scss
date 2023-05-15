@@ -1,0 +1,34 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.header--auth {
+    background-color: $eggplant;
+}
+
+.header__container--auth {
+    display: flex;
+    flex-direction: column;
+  }
+
+.header__logo-wrapper--auth {
+    display: flex;
+    justify-content: center;
+  }
+
+.header__brand--auth {
+    display: flex;
+    text-decoration: none;
+    color:$sand
+  }
+
+.header__title--auth {
+    align-self: center;
+    font-size: 2rem;
+    margin-left: 0.5rem;
+  }
+
+.header__logo--auth {
+    width: 2.5rem;
+  }
+
