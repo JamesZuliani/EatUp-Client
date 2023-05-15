@@ -3,7 +3,6 @@ import "./AuthHeader.scss";
 import Logo from "../../assests/images/grapes-svgrepo-com.svg";
 
 export default function AuthHeader() {
-
   return (
     <header className="header--auth">
       <div className="header__container--auth">

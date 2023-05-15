@@ -49,7 +49,7 @@ export default function RecipeLookup() {
               return (
                 <div key={index} className="suggestion">
                   <h3 className="suggestion__title">{recipe.title}</h3>
-                  <img className="suggestion__image" src={recipe.image} alt="suggestion recipe" />
+                  <img className="suggestion__image" src={recipe.image} alt="suggestion-recipe" />
                   <p className="suggestion__ingredients">
                     <span className="bold">Ingredients:</span>{" "}
                     {recipe.ingredients

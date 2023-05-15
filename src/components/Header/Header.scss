@@ -2,16 +2,23 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 .header {
-    background-color: $eggplant;
+  background-color: $eggplant;
+  display:flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
 
   &__container {
     display: flex;
     flex-direction: column;
 
     @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0 2rem;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+      flex-grow: 2;
     }
   }
 
@@ -23,7 +30,7 @@
   &__brand {
     display: flex;
     text-decoration: none;
-    color:$sand
+    color: $sand;
   }
 
   &__title {
@@ -35,25 +42,40 @@
   &__logo {
     width: 2.5rem;
   }
-
 }
 
 .nav {
-    display:flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+
+  @include tablet {
+    margin-right: 3rem;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: $sand;
+    margin: 1rem 0;
+    text-align: center;
 
     @include tablet {
-        margin-right: 3rem;
+      margin-right: 1rem;
     }
-    
-    &__item {
-        text-decoration: none;
-        color: $sand;
-        margin: 1rem 0;
-        text-align: center;
+  }
+}
 
-        @include tablet {
-            margin-right: 1rem;
-        }
-    }
+.logout {
+  color: $sand;
+  border: 1px solid $sand;
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+
+.logout-link {
+  align-self: center;
+  margin-bottom: 1rem;
+
+  @include tablet {
+    margin: 0 1rem;
+  }
 }
