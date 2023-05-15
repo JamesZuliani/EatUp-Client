@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-export default function Signup() {
+export default function Signup( {setUserId, onSignupSuccess, onAlreadyHaveAccount}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -11,10 +10,11 @@ export default function Signup() {
     e.preventDefault();
 
     axios
-      .post("api/signup", { username, password })
+      .post("http://localhost:8080/auth/signup", { username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        window.location = "/login";
+        setUserId(res.data.userId);
+        onSignupSuccess();
       })
       .catch((err) => setError(err.response.data.error));
   }
@@ -40,6 +40,8 @@ export default function Signup() {
         />
       </label>
       <button type="submit">Signup</button>
+      <div onClick={onAlreadyHaveAccount}>already have account?</div>
     </form>
+
   );
 }

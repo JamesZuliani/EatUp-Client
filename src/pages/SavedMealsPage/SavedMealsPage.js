@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../../components/Header/Header";
 
-export default function SavedMeals({ setSavedMeals, savedMeals }) {
+export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [mealTitle, setMealTitle] = useState("");
@@ -10,7 +10,7 @@ export default function SavedMeals({ setSavedMeals, savedMeals }) {
   useEffect(() => {
     axios
       .post("http://localhost:8080/saved-meals", {
-        userId: 1,
+        userId
       })
       .then((response) => {
         setSavedMeals(response.data);
@@ -37,7 +37,7 @@ export default function SavedMeals({ setSavedMeals, savedMeals }) {
     );
     axios
       .put("http://localhost:8080/saved-meals", {
-        user_id: 1,
+        user_id: userId,
         title: mealTitle,
         ingredient_1: ingredients[0],
         ingredient_2: ingredients[1],

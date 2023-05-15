@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-export default function Login() {
+export default function Login({ onLoginSuccess, setUserId }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -11,10 +10,12 @@ export default function Login() {
     e.preventDefault();
 
     axios
-      .post("api/login", { username, password })
+      .post("http://localhost:8080/auth/login", { username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        window.location = "/login";
+        setUserId(res.data.userId)
+        onLoginSuccess();
+        
       })
       .catch((err) => setError(err.response.data.error));
   }
