@@ -9,6 +9,7 @@
 .header__container--auth {
     display: flex;
     flex-direction: column;
+    height: 4rem;
   }
 
 .header__logo-wrapper--auth {
@@ -26,6 +27,7 @@
     align-self: center;
     font-size: 2rem;
     margin-left: 0.5rem;
+    margin-right: 2rem;
   }
 
 .header__logo--auth {

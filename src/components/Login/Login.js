@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Login.scss"
 
 export default function Login({ onLoginSuccess, setUserId }) {
   const [username, setUsername] = useState("");
@@ -21,26 +22,27 @@ export default function Login({ onLoginSuccess, setUserId }) {
   }
 
   return (
-    <form onSubmit={handleLogin}>
-      <h1>Login</h1>
-      {error && <p>{error}</p>}
-      <label>
+    <form className="login" onSubmit={handleLogin}>
+      <h1 className="login__title"> Login</h1>
+      <label className="user--login labels--login">
         Username:
-        <input
+        <input className="user__input--login"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </label>
-      <label>
+      <label className="password--login labels--login">
         Password:
         <input
+        className="password__input--login"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <button type="submit">Login</button>
+      {error && <p className="error--login">{error}</p>}
+      <button type="submit" className="login__submit">Login</button>
     </form>
   );
 }

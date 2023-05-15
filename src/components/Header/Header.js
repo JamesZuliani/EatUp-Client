@@ -24,8 +24,10 @@ export default function Header() {
           </NavLink>
         </nav>
       </div>
-      <Link to="/">
-        <div onClick={handleDelete}>logout</div>
+      <Link to="/" className="logout-link">
+        <div className="logout" onClick={handleDelete}>
+          logout
+        </div>
       </Link>
     </header>
   );

@@ -1,0 +1,70 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.login {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $grape;
+  border-radius: 15px;
+  width: 22rem;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  background-color: $shell;
+  
+  &__title {
+    color: $grape;
+    align-self: center;
+  }
+  
+  &__submit {
+    width: fit-content;
+    border: 2px solid $grape;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    color: $grape;
+    background-color: $shell;
+    font-weight: 600;
+    align-self: center;
+    margin: 1rem 0;
+  }
+}
+
+.user--login {
+    color: $grape;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.user__input--login {
+    margin-left: 0.5rem;
+    padding: 0.2rem;
+    border-radius: 15px;
+    border: 2px solid $grape;
+    background-color: $shell;
+  }
+
+  .password--login {
+    color: $grape;
+    font-weight: 600;
+  }
+
+  .password__input--login {
+    margin-left: 0.61rem;
+    padding: 0.2rem;
+    border-radius: 15px;
+    border: 2px solid $grape;
+    background-color: $shell;
+  }
+
+  .labels--login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .error--login {
+    color: $grape;
+    align-self: center;
+    margin-top: 0.5rem;
+  }
