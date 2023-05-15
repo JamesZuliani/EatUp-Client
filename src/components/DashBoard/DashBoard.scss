@@ -1,0 +1,90 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.dashboard {
+    width: 95%;
+    margin: 0 auto;
+
+    &__title {
+        color: $grape;
+        text-align: center;
+        margin: 2rem 0 1rem 0;
+    }
+}
+
+.feature-list{
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        width: 48rem;
+        margin: 0 auto
+    }
+}
+
+.feature-container {
+    border: 2px solid $grape;
+    border-radius: 15px;
+    background-color: $shell;
+    margin: 1rem;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.sub-title {
+    color: $grape;
+    margin: 1rem auto;
+    border: 2px solid $grape;
+    width: fit-content;
+    border-radius: 15px;
+    padding: 0.4rem;
+    background-color: $sand;
+
+    &:hover {
+        cursor: pointer;
+        color: $eggplant;
+        border: 2px solid $eggplant;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+}
+
+.feature {
+    display: flex;
+    justify-content: space-between;
+
+    &__paragraph {
+        width: 45%;
+        color: $grape;
+        margin-left: 0.25rem;
+
+        @include tablet {
+            margin: 1rem 0;
+            height: fit-content;
+            align-self: center;
+        }
+    }
+
+    &__image {
+        width: 8rem;
+
+        @include tablet {
+            width: 12rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__text {
+        display: flex;
+        justify-content: space-evenly;
+        
+
+        // @include tablet {
+        //     flex-direction: column;
+        //     align-items: center;
+            
+        // }
+    }
+}

@@ -1,10 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
-import "./Header.scss";
 import Logo from "../../assests/images/grapes-svgrepo-com.svg";
+import "./Header.scss";
 
-export default function Header() {
-  const handleDelete = () => {
+export default function Header({ handleLogOut }) {
+  const handleLogOutClick = () => {
     localStorage.removeItem("token");
+    if (handleLogOut) {
+      handleLogOut();
+    }
   };
   return (
     <header className="header">
@@ -17,15 +20,15 @@ export default function Header() {
         </div>
         <nav className="nav">
           <NavLink to="/recipes" className="nav__item">
-            <h3 className="nav__link">Recipe Page</h3>
+            <h3 className="nav__link">Recipe Lookup</h3>
           </NavLink>
           <NavLink to="/saved-meals" className="nav__item">
-            <h3 className="nav__link">Saved Meals Page</h3>
+            <h3 className="nav__link">Saved Meals</h3>
           </NavLink>
         </nav>
       </div>
       <Link to="/" className="logout-link">
-        <div className="logout" onClick={handleDelete}>
+        <div className="logout" onClick={handleLogOutClick}>
           logout
         </div>
       </Link>
