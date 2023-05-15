@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.title{
+    color: $grape;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.feature-wrapper {
+    width: 85%;
+    margin: 0 auto;
+}

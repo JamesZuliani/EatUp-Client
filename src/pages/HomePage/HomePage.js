@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import AuthHeader from "../../components/AuthHeader/AuthHeader";
 import Login from "../../components/Login/Login";
 import Signup from "../../components/Signup/Signup";
+import DashBoard from "../../components/DashBoard/DashBoard";
 
 export default function HomePage({ setUserId }) {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,10 +36,8 @@ export default function HomePage({ setUserId }) {
   if (loggedIn) {
     return (
       <>
-        <Header />
-        <div>
-          <h3>DashBoard</h3>
-        </div>
+        <Header handleLogOut={handleLogOut}/>
+        <DashBoard />
       </>
     );
   }

@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../../components/Header/Header";
+import ViewMeal from "../../components/ViewMeal/ViewMeal"
+import "./SavedMealPage.scss"
 
 export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [mealTitle, setMealTitle] = useState("");
+  const [selectedMeal, setSelectedMeal] = useState(null);
 
   useEffect(() => {
     axios
       .post("http://localhost:8080/saved-meals", {
-        userId
+        userId,
       })
       .then((response) => {
         setSavedMeals(response.data);
       })
 
       .catch((error) => console.log(error));
-  },[]);
+  }, []);
 
   const handleSearch = () => {
     axios
@@ -57,12 +60,17 @@ export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
   };
 
   const handleDeleteMeal = (mealId) => {
-    console.log(mealId)
-    console.log("meal id above")
+    console.log(mealId);
+    console.log("meal id above");
     axios
       .delete(`http://localhost:8080/saved-meals/${mealId}`)
-      .then(() => setSavedMeals((cur) => cur.filter((meal) => meal.id !== mealId)))
-      .catch((error) => console.log(error));
+      .then(() => {
+        console.log("meal deleted successfully")
+        setSavedMeals((cur) => cur.filter((meal) => meal.id !== mealId))
+  })
+      .catch((error) => {
+        console.log("error deleting meal: ",error)
+      })
   };
 
   const handleTitleChange = (event) => {
@@ -73,40 +81,57 @@ export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
     setSearchInput(event.target.value);
   };
 
+  const handleMealClick = (meal) => {
+    setSelectedMeal(meal);
+  };
+
+  const handleBackClick = () => {
+    setSelectedMeal(null);
+  };
+
   return (
     <div>
       <Header />
-      <h1> Saved Meal</h1>
-      <div>
-        <h2>Search for Ingredients</h2>
-        <input type="text" onChange={handleSearchInputChange} />
-        <button onClick={handleSearch}>Search</button>
-        <div>
-          {searchResults.map((result, index) => {
-            return (
-              <div key={index} className="here">
-                <h3>{result.ingredients[0].text}</h3>
-                <p>Calories: {result.calories}</p>
+      <h1 className="title"> Saved Meals Page</h1>
+      {selectedMeal ? (
+        <ViewMeal meal={selectedMeal} handleBackClick={handleBackClick} />
+      ) : (
+        <div className="feature-wrapper">
+          <div className="new-input">
+            <h3 className="new-input__title">Search for Ingredients</h3>
+            <input className="search" type="text" onChange={handleSearchInputChange} />
+            <button className="search__submit" onClick={handleSearch}>Search</button>
+            <div className="card-wrapper">
+              {searchResults.map((result, index) => {
+                return (
+                  <div key={index} className="searched-card">
+                    <h3 className="searched-card__title">{result.ingredients[0].text}</h3>
+                    <p>Calories: {result.calories}</p>
+                  </div>
+                );
+              })}
+              <div>
+                <input type="text" onChange={handleTitleChange} />
+                <button onClick={handleSaveMeal}>Save Meal</button>
               </div>
-            );
-          })}
+            </div>
+          </div>
           <div>
-            <input type="text" onChange={handleTitleChange} />
-            <button onClick={handleSaveMeal}>Save Meal</button>
+            <h2>Saved Meals</h2>
+            {savedMeals.map((meal) => {
+              console.log(meal)
+              return (
+                <div key={meal.id}>
+                  <h3 onClick={() => handleMealClick(meal)}>{meal.title}</h3>
+                  <button onClick={() => handleDeleteMeal(meal.id)}>
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
           </div>
         </div>
-      </div>
-      <div>
-        <h2>Saved Meals</h2>
-        {savedMeals.map((meal) => {
-          return (
-            <div key={meal.id}>
-              <h3>{meal.title}</h3>
-              <button onClick={() => handleDeleteMeal(meal.id)}>Delete</button>
-            </div>
-          );
-        })}
-      </div>
+      )}
     </div>
   );
 }
