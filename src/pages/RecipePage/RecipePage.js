@@ -20,10 +20,20 @@ export default function RecipePage() {
       <Header />
       <div className="recipe-page">
         <div className="sub-nav">
-          <h4 onClick={handleShowRecipeLookup} className="sub-nav__item">
+          <h4
+            onClick={handleShowRecipeLookup}
+            className={
+              showRandomRecipes ? "sub-nav__item" : "sub-nav__item active-tab"
+            }
+          >
             Recipe Lookup
           </h4>
-          <h4 onClick={handleShowRandomRecipes} className="sub-nav__item">
+          <h4
+            onClick={handleShowRandomRecipes}
+            className={
+              showRandomRecipes ? "sub-nav__item active-tab" : "sub-nav__item"
+            }
+          >
             Random Recipe
           </h4>
         </div>

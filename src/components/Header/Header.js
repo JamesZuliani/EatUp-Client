@@ -25,6 +25,9 @@ export default function Header({ handleLogOut }) {
           <NavLink to="/saved-meals" className="nav__item">
             <h3 className="nav__link">Saved Meals</h3>
           </NavLink>
+          <NavLink to="/journal" className="nav__item">
+            <h3 className="nav__link">Daily Journal</h3>
+          </NavLink>
         </nav>
       </div>
       <Link to="/" className="logout-link">

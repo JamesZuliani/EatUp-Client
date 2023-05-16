@@ -35,6 +35,12 @@
     color: $grape;
     background-color: $shell;
     font-weight: 600;
+
+    &:hover {
+      cursor: pointer;
+      color: $eggplant;
+      border-color: $eggplant;
+    }
   }
 }
 
