@@ -130,29 +130,29 @@ export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
                         <span className="ingredient-list__item--bold">
                           Carbs:
                         </span>{" "}
-                        {result.totalDaily.CHOCDF.quantity.toFixed(2)}
-                        {result.totalDaily.CHOCDF.unit}
+                        {result.totalDaily.CHOCDF.quantity.toFixed(2) || "N/A"}
+                        {result.totalDaily.CHOCDF.unit|| ""}
                       </p>
                       <p className="ingredient-list__item">
                         <span className="ingredient-list__item--bold">
                           Protein:
                         </span>{" "}
-                        {result.totalDaily.PROCNT.quantity.toFixed(2)}
-                        {result.totalDaily.PROCNT.unit}
+                        {result.totalDaily.PROCNT.quantity.toFixed(2)|| "N/A"}
+                        {result.totalDaily.PROCNT.unit || ""}
                       </p>
                       <p className="ingredient-list__item">
                         <span className="ingredient-list__item--bold">
                           Fat:
                         </span>{" "}
-                        {result.totalDaily.FAT.quantity.toFixed(2)}
-                        {result.totalDaily.FAT.unit}
+                        {result.totalDaily.FAT.quantity.toFixed(2)|| "N/A"}
+                        {result.totalDaily.FAT.unit || ""}
                       </p>
                       <p className="ingredient-list__item">
                         <span className="ingredient-list__item--bold">
                           Sugars:
                         </span>{" "}
-                        {result.totalNutrients.SUGAR.quantity.toFixed(2)}
-                        {result.totalNutrients.SUGAR.unit}
+                        {result.totalNutrients?.SUGAR?.quantity?.toFixed(2) || "N/A"}
+                        {result.totalNutrients?.SUGAR?.unit || ""}
                       </p>
                     </div>
                   </div>

@@ -1,0 +1,36 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.coming-soon {
+    width: 30rem;
+    margin: 2.5rem auto;
+    border: 2px solid $grape;
+    border-radius: 15px;
+    background-color: $shell;
+    
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        color: $grape;
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    &__image {
+        width: 16rem;
+        margin: 1.5rem 0;
+    }
+
+    &__description {
+        color: $grape;
+        width: 82%;
+        margin: 1rem 0;
+        font-size: 1.15rem;
+        text-align: center;
+
+    }
+}
