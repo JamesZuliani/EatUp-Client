@@ -25,7 +25,7 @@ Please ensure you have Node.js and npm installed to run this application. Follow
   3. Set up environment variables:
     The included .env.sample file can be renamed to .env, then remove the < > characters and provide your local database information.
     
-  4. Initialize the database tables:
+  4. Initialize the database tables: <br>
     `knex migrate:latest`
     
   5. Run the server <br>
