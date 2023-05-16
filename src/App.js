@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, {useState} from "react";
 
-// import Login from "./components/Login/Login";
-// import Signup from "./components/Signup/Signup";
+
 import HomePage from "./pages/HomePage/HomePage"
 import RecipePage from "./pages/RecipePage/RecipePage";
 import SavedMealsPage from "./pages/SavedMealsPage/SavedMealsPage";
