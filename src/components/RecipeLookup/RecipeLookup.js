@@ -46,9 +46,10 @@ export default function RecipeLookup() {
         {recipes.length > 0 ? (
           <div className="suggestion-container">
             {recipes.map((recipe, index) => {
+              const trimmedTitle = recipe.title.length > 42 ? recipe.title.slice(0, 42) + "..." : recipe.title;
               return (
                 <div key={index} className="suggestion">
-                  <h3 className="suggestion__title">{recipe.title}</h3>
+                  <h3 className="suggestion__title">{trimmedTitle}</h3>
                   <img className="suggestion__image" src={recipe.image} alt="suggestion-recipe" />
                   <p className="suggestion__ingredients">
                     <span className="bold">Ingredients:</span>{" "}

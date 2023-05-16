@@ -46,6 +46,10 @@
         border: 2px solid $eggplant;
     }
 
+    @include tablet {
+        margin-top: 2rem;
+    }
+
     &__link {
         text-decoration: none;
     }
@@ -72,7 +76,7 @@
 
         @include tablet {
             width: 12rem;
-            margin-bottom: 1rem;
+            margin: 0 1rem 1rem 1.5rem;
         }
     }
 
