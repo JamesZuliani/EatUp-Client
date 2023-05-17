@@ -56,8 +56,8 @@ export default function ViewMeal({ meal, handleBackClick }) {
               </p>
               <p className="ingredient-list__item">
                 <span className="ingredient-list__item--bold">Sugars:</span>{" "}
-                {nutritionFact.totalNutrients.SUGAR.quantity.toFixed(2)}
-                {nutritionFact.totalNutrients.SUGAR.unit}
+                {nutritionFact.totalNutrients?.SUGAR?.quantity?.toFixed(2)}
+                {nutritionFact.totalNutrients?.SUGAR?.unit}
               </p>
             </div>
           </div>
