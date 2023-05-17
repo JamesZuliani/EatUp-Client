@@ -1,0 +1,136 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.lookup {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  &__label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $grape;
+    margin-top: 1.5rem;
+  }
+
+  &__input {
+    padding: 0.5rem;
+    border-radius: 15px;
+    border: 2px solid $grape;
+    background-color: $shell;
+    margin-bottom: 1rem;
+    width: 17rem;
+  }
+
+  &__submit {
+    width: fit-content;
+    border: 2px solid $grape;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    color: $grape;
+    background-color: $shell;
+    font-weight: 600;
+
+    &:hover {
+      cursor: pointer;
+      color: $eggplant;
+      border-color: $eggplant;
+    }
+  }
+}
+
+.suggestion-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 1.5rem auto;
+
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 95%;
+  }
+  @include desktop {
+    width: 80rem;
+  }
+}
+
+.suggestion {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $grape;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  background-color: $shell;
+
+  @include tablet {
+    width: 43%;
+    height: 38rem;
+    margin: 1rem 0;
+  }
+
+  @include desktop {
+    width: 30%;
+  }
+
+  &__title {
+    color: $grape;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+
+  &__image {
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 1rem auto;
+    width: 17rem;
+
+    @include tablet {
+      align-self: center;
+      margin: 2rem 0;
+    }
+  }
+
+  &__ingredients {
+    color: $grape;
+  }
+
+  &__link {
+    width: fit-content;
+    border: 2px solid $grape;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    color: $grape;
+    background-color: $sand;
+    text-decoration: none;
+    align-self: center;
+    margin-top: 0.35rem;
+    font-weight: 600;
+
+    &:hover {
+      border: 2px solid $eggplant;
+      color: $eggplant;
+      cursor: pointer;
+    }
+  }
+
+  &__instruction {
+    width: 13rem;
+    margin: 4rem auto;
+    text-align: center;
+    color: $grape;
+    font-weight: 600;
+  }
+}
+
+.bold {
+  font-weight: 600;
+}

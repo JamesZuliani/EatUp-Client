@@ -1,0 +1,107 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+.header {
+  background-color: $eggplant;
+  display:flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 2rem;
+      flex-grow: 2;
+    }
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__brand {
+    display: flex;
+    text-decoration: none;
+    color: $sand;
+  }
+
+  &__title {
+    align-self: center;
+    font-size: 2rem;
+    margin-left: 0.5rem;
+  }
+
+  &__logo {
+    width: 2.5rem;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+
+  @include tablet {
+    margin-right: 3rem;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: $sand;
+    margin: 1rem 0;
+    text-align: center;
+    align-self: center;
+    transition: all;
+    -webkit-transition: 0.5s;
+    transition-timing-function: ease;
+    
+
+    &:hover {
+      font-size: 1.1rem;
+      transition: all;
+      -webkit-transition: 0.5s;
+      transition-timing-function: ease;
+      
+    }
+
+
+
+    @include tablet {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.logout {
+  color: $sand;
+  border: 1px solid $sand;
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+
+.logout-link {
+  align-self: center;
+  margin-bottom: 1rem;
+
+  @include tablet {
+    margin: 0 1rem;
+  }
+}
+
+.active {
+  border: 1px solid #8c7d70;
+  border-radius: 15px;
+  padding: 0.3rem;
+  color: #8c7d70;
+
+  &:hover {
+    font-size: 1rem;
+  }
+}

@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, {useState} from "react";
+
+
+import HomePage from "./pages/HomePage/HomePage"
+import RecipePage from "./pages/RecipePage/RecipePage";
+import SavedMealsPage from "./pages/SavedMealsPage/SavedMealsPage";
+import JournalPage from "./pages/JournalPage/JournalPage"
+import "./App.scss";
+
+
 
 function App() {
+
+  const [savedMeals, setSavedMeals] = useState([]);
+  const [userId, setUserId] = useState ("")
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage setUserId={setUserId}/>} />
+        <Route path="/recipes" element={<RecipePage />} />
+        <Route path="/saved-meals" element={<SavedMealsPage savedMeals={savedMeals} setSavedMeals={setSavedMeals} userId={userId}/>} />
+        <Route path="/journal" element={<JournalPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

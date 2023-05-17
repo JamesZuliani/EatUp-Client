@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# EatUp!
+EatUp! is an all in one dashboard to assist the user in creating, understanding and inspiring them in their health journey.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application allows the user to create meals while understanding the nutrition facts, research what recipes they are able to create based off what ingredients they have on hand, and get inspired by some of the dynamically generated recipes available on the recipes page. 
 
-## Available Scripts
+I created EatUp! as my capstone project for BrainStation's Software Engineering bootcamp. In less than 2 weeks, I was required to develop a full stack application using the technologies we were introduced to over the bootcamp. The client side of EatUp! is developed with React, and the server side runs an express server on Node. Future implementations which begin with the phase-2 rollout will include strengthening the user authentication, and implementing the Daily Journal page which will include features such as data visualization through charts, and goal tracking that compares logged entries for each meal of the day. 
 
-In the project directory, you can run:
+The client side is a fully responsive design from mobile to desktop viewports, my personal favourite is the mobile version! The back end runs Express through Node.js which supports the database using Knex and MySQL. 
 
-### `npm start`
+Creating this project was a great outlet to summarize the learnings from BrainStation's Software Engieering bootcamp in a 2 week period, and I'm excited to rollout the next batch of features in the near future, so stay tuned!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Thanks for stopping by! Reach out if you have any questions or wish to connect.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-James Zuliani
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Installation
+Please ensure you have Node.js and npm installed to run this application. Follow these steps to run a local instance of EatUp!:
+  1. Download or clone these repositories and save them in the new parent folder
+    There are two repos to download: [EatUp! Client](https://github.com/JamesZuliani/EatUp-Client) and [EatUp! Server](https://github.com/JamesZuliani/EatUp-Server)
+    
+## Server-side folder & setup
+  2. Install the required dependencies in the server folder <br>
+  `npm install`
+  
+  3. Set up environment variables:
+    The included .env.sample file can be renamed to .env, then remove the < > characters and provide your local database information.
+    
+  4. Initialize the database tables: <br>
+    `knex migrate:latest`
+    
+  5. Run the server <br>
+    `npm run nodemon`
+    
+## Client-side folder & setup
+  5. install the required dependencies in the client folder <br>
+  `npm install`
+  
+  6. Start the React application <br>
+  `npm start`
+  

@@ -1,0 +1,110 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.recipe-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    width: 95%;
+  }
+
+  &__randomizer {
+    width: fit-content;
+    border: 2px solid $grape;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    color: $grape;
+    background-color: $shell;
+    margin-top: 2rem;
+
+    &:hover {
+      border: 2px solid $eggplant;
+      color: $eggplant;
+      cursor: pointer;
+    }
+  }
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $grape;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  background-color: $shell;
+
+  @include tablet {
+    width: 43%;
+    margin: 1rem 0;
+  }
+
+  @include desktop {
+    width: 30%;
+  }
+
+  &__title {
+    color: $grape;
+    text-align: center;
+  }
+
+  &__image {
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 17rem;
+    margin: 1rem auto;
+
+    @include tablet {
+      width: 80%;
+      align-self: center;
+      margin: 2rem 0;
+    }
+  }
+
+  &__item-list {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__item {
+    color: $grape;
+    align-self: center;
+  }
+
+  &__link {
+    width: fit-content;
+    border: 2px solid $grape;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    color: $grape;
+    background-color: $sand;
+    text-decoration: none;
+    align-self: center;
+    margin-top: 1rem;
+    font-weight: 600;
+
+    &:hover {
+      border: 2px solid $eggplant;
+      color: $eggplant;
+      cursor: pointer;
+    }
+  }
+}
+
+.card-container {
+  
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 95%;
+  }
+  @include desktop {
+    width: 80rem;
+  }
+}
