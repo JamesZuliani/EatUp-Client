@@ -12,7 +12,7 @@ export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8080/saved-meals", {
+      .post(`${process.env.REACT_APP_BACKEND}/saved-meals`, {
         userId,
       })
       .then((response) => {
@@ -26,7 +26,7 @@ export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
 
   const handleSearch = () => {
     axios
-      .post("http://localhost:8080/saved-meals/ingredient", {
+      .post(`${process.env.REACT_APP_BACKEND}/saved-meals/ingredient`, {
         food: searchInput,
       })
       .then((response) => {
@@ -41,7 +41,7 @@ export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
       (result) => result.ingredients[0].text
     );
     axios
-      .put("http://localhost:8080/saved-meals", {
+      .put(`${process.env.REACT_APP_BACKEND}/saved-meals`, {
         user_id: userId,
         title: mealTitle,
         ingredient_1: ingredients[0],
@@ -65,7 +65,7 @@ export default function SavedMeals({ setSavedMeals, savedMeals, userId }) {
     console.log(mealId);
     console.log("meal id above");
     axios
-      .delete(`http://localhost:8080/saved-meals/${mealId}`)
+      .delete(`${process.env.REACT_APP_BACKEND}/saved-meals/${mealId}`)
       .then(() => {
         console.log("meal deleted successfully");
         setSavedMeals((cur) => cur.filter((meal) => meal.id !== mealId));

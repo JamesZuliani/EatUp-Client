@@ -17,7 +17,7 @@ export default function ViewMeal({ meal, handleBackClick }) {
       const nutritionFactsArray = [];
       for (const ingredient of ingredients) {
         const response = await axios.post(
-          "http://localhost:8080/saved-meals/ingredient",
+          `${process.env.REACT_APP_BACKEND}/saved-meals/ingredient`,
           { food: ingredient }
         );
         nutritionFactsArray.push(response.data);

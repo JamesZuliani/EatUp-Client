@@ -14,7 +14,7 @@ export default function RecipeLookup() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/recipes/search",
+        `${process.env.REACT_APP_BACKEND}/recipes/search`,
         {
           ingredients,
         }

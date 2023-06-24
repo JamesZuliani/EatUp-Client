@@ -7,7 +7,7 @@ export default function RandomRecipe() {
 
   const getRandomRecipes = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/recipes");
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND}/recipes`);
       setRecipes(response.data);
       console.log(response.data);
     } catch (error) {

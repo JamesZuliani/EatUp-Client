@@ -11,7 +11,7 @@ export default function Login({ onLoginSuccess, setUserId }) {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8080/auth/login", { username, password })
+      .post(`${process.env.REACT_APP_BACKEND}/auth/login`, { username, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         setUserId(res.data.userId)
