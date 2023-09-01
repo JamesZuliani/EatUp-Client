@@ -1,14 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assests/images/grapes-svgrepo-com.svg";
 import "./Header.scss";
 
-export default function Header({ handleLogOut }) {
+export default function Header({ onLoggedOut }) {
   const handleLogOutClick = () => {
     localStorage.removeItem("token");
-    if (handleLogOut) {
-      handleLogOut();
-    }
+    onLoggedOut?.();
+    navigate("/");
   };
+
+  const navigate = useNavigate();
+
   return (
     <header className="header">
       <div className="header__container">
@@ -30,11 +32,9 @@ export default function Header({ handleLogOut }) {
           </NavLink>
         </nav>
       </div>
-      <Link to="/" className="logout-link">
-        <div className="logout" onClick={handleLogOutClick}>
-          logout
-        </div>
-      </Link>
+      <button className="logout" onClick={handleLogOutClick}>
+        Logout
+      </button>
     </header>
   );
 }

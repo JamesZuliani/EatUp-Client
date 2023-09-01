@@ -3,11 +3,13 @@
 @use "../../styles/partials/variables" as *;
 .header {
   background-color: $eggplant;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  padding: 1rem;
 
   @include tablet {
     flex-direction: row;
+    padding: 0;
   }
 
   &__container {
@@ -58,20 +60,13 @@
     margin: 1rem 0;
     text-align: center;
     align-self: center;
-    transition: all;
-    -webkit-transition: 0.5s;
-    transition-timing-function: ease;
-    
 
     &:hover {
-      font-size: 1.1rem;
+      color: $sand-hover;
       transition: all;
-      -webkit-transition: 0.5s;
+      -webkit-transition: 0.15s;
       transition-timing-function: ease;
-      
     }
-
-
 
     @include tablet {
       margin-right: 1rem;
@@ -84,14 +79,20 @@
   border: 1px solid $sand;
   padding: 0.5rem;
   border-radius: 15px;
-}
-
-.logout-link {
   align-self: center;
-  margin-bottom: 1rem;
+  background-color: transparent;
 
   @include tablet {
     margin: 0 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $sand-hover;
+    border-color: $sand-hover;
+    transition: all;
+    -webkit-transition: 0.15s;
+    transition-timing-function: ease;
   }
 }
 

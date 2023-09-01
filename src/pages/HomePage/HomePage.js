@@ -28,15 +28,14 @@ export default function HomePage({ setUserId }) {
     setShowLogin(true);
   };
 
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
+  const onLoggedOut = () => {
     setLoggedIn(false);
   };
 
   if (loggedIn) {
     return (
       <>
-        <Header handleLogOut={handleLogOut}/>
+        <Header onLoggedOut={onLoggedOut}/>
         <DashBoard />
       </>
     );
